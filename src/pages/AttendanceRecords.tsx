@@ -25,17 +25,17 @@ const statusConfig = {
   present: {
     icon: CheckCircle2,
     label: 'Present',
-    className: 'bg-success/10 text-success border-success/20',
+    className: 'bg-success/15 text-success border-success/20',
   },
   late: {
     icon: Clock,
     label: 'Late',
-    className: 'bg-warning/10 text-warning border-warning/20',
+    className: 'bg-warning/15 text-warning border-warning/20',
   },
   absent: {
     icon: XCircle,
     label: 'Absent',
-    className: 'bg-destructive/10 text-destructive border-destructive/20',
+    className: 'bg-destructive/15 text-destructive border-destructive/20',
   },
 };
 
@@ -69,10 +69,11 @@ export default function AttendanceRecords() {
   return (
     <MainLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Attendance Records</h1>
+            <h1 className="text-3xl font-bold tracking-tight">
+              Attendance <span className="text-primary">Records</span>
+            </h1>
             <p className="text-muted-foreground text-sm mt-1">
               View and export attendance history
             </p>
@@ -83,7 +84,6 @@ export default function AttendanceRecords() {
           </Button>
         </div>
 
-        {/* Date Picker */}
         <div className="flex items-center gap-4">
           <Popover>
             <PopoverTrigger asChild>
@@ -106,8 +106,7 @@ export default function AttendanceRecords() {
           </span>
         </div>
 
-        {/* Records Table */}
-        <div className="rounded-xl border bg-card overflow-hidden">
+        <div className="rounded-2xl border bg-card overflow-hidden">
           {filteredRecords.length === 0 ? (
             <div className="text-center py-16">
               <CalendarIcon className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
@@ -119,7 +118,7 @@ export default function AttendanceRecords() {
           ) : (
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="border-border hover:bg-secondary/50">
                   <TableHead>Roll Number</TableHead>
                   <TableHead>Student Name</TableHead>
                   <TableHead>Department</TableHead>
@@ -133,7 +132,7 @@ export default function AttendanceRecords() {
                   const status = statusConfig[record.status];
                   const StatusIcon = status.icon;
                   return (
-                    <TableRow key={record.id}>
+                    <TableRow key={record.id} className="border-border hover:bg-secondary/30">
                       <TableCell className="font-medium">{record.rollNumber}</TableCell>
                       <TableCell>{record.studentName}</TableCell>
                       <TableCell>{record.department}</TableCell>

@@ -11,19 +11,19 @@ interface StudentCardProps {
 
 export function StudentCard({ student, onDelete }: StudentCardProps) {
   return (
-    <div className="rounded-xl border bg-card p-5 hover:shadow-md transition-shadow">
+    <div className="rounded-2xl border bg-card p-5 card-hover">
       <div className="flex items-start gap-4">
-        <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+        <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 overflow-hidden">
           {student.faceImage ? (
-            <img src={student.faceImage} alt={student.name} className="w-full h-full rounded-full object-cover" />
+            <img src={student.faceImage} alt={student.name} className="w-full h-full object-cover" />
           ) : (
-            <User className="w-7 h-7 text-accent-foreground" />
+            <User className="w-6 h-6 text-primary" />
           )}
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold truncate">{student.name}</h3>
           <p className="text-sm text-muted-foreground">{student.rollNumber}</p>
-          <Badge variant="outline" className="mt-1 text-xs bg-accent text-accent-foreground border-primary/20">
+          <Badge variant="outline" className="mt-1.5 text-xs bg-accent/50 text-accent-foreground border-primary/20">
             {student.department}
           </Badge>
         </div>
@@ -45,7 +45,7 @@ export function StudentCard({ student, onDelete }: StudentCardProps) {
       </div>
 
       {onDelete && (
-        <div className="mt-4 pt-3 border-t">
+        <div className="mt-4 pt-3 border-t border-border">
           <Button
             variant="ghost"
             size="sm"

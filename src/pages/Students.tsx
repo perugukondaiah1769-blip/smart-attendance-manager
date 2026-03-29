@@ -39,23 +39,23 @@ export default function Students() {
   return (
     <MainLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Students</h1>
+            <h1 className="text-3xl font-bold tracking-tight">
+              Stu<span className="text-primary">dents</span>
+            </h1>
             <p className="text-muted-foreground text-sm mt-1">
               Manage registered students and their face data
             </p>
           </div>
           <Link to="/register">
-            <Button className="gap-2">
+            <Button className="gap-2 glow-primary">
               <UserPlus className="w-4 h-4" />
               Register Student
             </Button>
           </Link>
         </div>
 
-        {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -63,11 +63,11 @@ export default function Students() {
               placeholder="Search by name or roll number..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+              className="pl-10 bg-secondary/50 border-border"
             />
           </div>
           <Select value={departmentFilter} onValueChange={setDepartmentFilter}>
-            <SelectTrigger className="w-full sm:w-48">
+            <SelectTrigger className="w-full sm:w-48 bg-secondary/50 border-border">
               <SelectValue placeholder="All Departments" />
             </SelectTrigger>
             <SelectContent>
@@ -81,9 +81,8 @@ export default function Students() {
           </Select>
         </div>
 
-        {/* Students Grid */}
         {filteredStudents.length === 0 ? (
-          <div className="text-center py-16 rounded-xl border bg-card">
+          <div className="text-center py-16 rounded-2xl border bg-card">
             <Users className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
             <h3 className="font-semibold text-lg">No students found</h3>
             <p className="text-sm text-muted-foreground mt-1">
@@ -92,7 +91,7 @@ export default function Students() {
                 : 'Get started by registering your first student'}
             </p>
             <Link to="/register">
-              <Button className="mt-4 gap-2">
+              <Button className="mt-4 gap-2 glow-primary">
                 <UserPlus className="w-4 h-4" />
                 Register Student
               </Button>

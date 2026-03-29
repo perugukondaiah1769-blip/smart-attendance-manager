@@ -75,9 +75,10 @@ export default function RegisterStudent() {
   return (
     <MainLayout>
       <div className="space-y-8 max-w-4xl mx-auto">
-        {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Register Student</h1>
+          <h1 className="text-3xl font-bold tracking-tight">
+            Register <span className="text-primary">Student</span>
+          </h1>
           <p className="text-muted-foreground text-sm mt-1">
             Add a new student to the face recognition system
           </p>
@@ -85,33 +86,32 @@ export default function RegisterStudent() {
 
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Student Details */}
-            <div className="rounded-xl border bg-card p-5 space-y-4">
+            <div className="rounded-2xl border bg-card p-6 space-y-4">
               <h3 className="font-semibold">Student Information</h3>
 
               <div className="space-y-3">
                 <div>
-                  <Label>Full Name *</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Full Name *</Label>
                   <Input
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="mt-1.5"
+                    className="mt-1.5 bg-secondary/50 border-border"
                     placeholder="Enter full name"
                   />
                 </div>
                 <div>
-                  <Label>Roll Number *</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Roll Number *</Label>
                   <Input
                     value={formData.rollNumber}
                     onChange={(e) => handleInputChange('rollNumber', e.target.value)}
-                    className="mt-1.5"
+                    className="mt-1.5 bg-secondary/50 border-border"
                     placeholder="e.g., CS2024001"
                   />
                 </div>
                 <div>
-                  <Label>Department *</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Department *</Label>
                   <Select onValueChange={(value) => handleInputChange('department', value)}>
-                    <SelectTrigger className="mt-1.5">
+                    <SelectTrigger className="mt-1.5 bg-secondary/50 border-border">
                       <SelectValue placeholder="Select department" />
                     </SelectTrigger>
                     <SelectContent>
@@ -122,9 +122,9 @@ export default function RegisterStudent() {
                   </Select>
                 </div>
                 <div>
-                  <Label>Semester *</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Semester *</Label>
                   <Select onValueChange={(value) => handleInputChange('semester', value)}>
-                    <SelectTrigger className="mt-1.5">
+                    <SelectTrigger className="mt-1.5 bg-secondary/50 border-border">
                       <SelectValue placeholder="Select semester" />
                     </SelectTrigger>
                     <SelectContent>
@@ -135,30 +135,29 @@ export default function RegisterStudent() {
                   </Select>
                 </div>
                 <div>
-                  <Label>Email</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Email</Label>
                   <Input
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className="mt-1.5"
+                    className="mt-1.5 bg-secondary/50 border-border"
                     placeholder="student@college.edu"
                   />
                 </div>
                 <div>
-                  <Label>Phone</Label>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Phone</Label>
                   <Input
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className="mt-1.5"
+                    className="mt-1.5 bg-secondary/50 border-border"
                     placeholder="+91 9876543210"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Face Capture */}
             <div className="space-y-4">
-              <div className="rounded-xl border bg-card p-5">
+              <div className="rounded-2xl border bg-card p-6">
                 <div className="flex items-center gap-2 mb-4">
                   {faceImage ? (
                     <CheckCircle2 className="w-5 h-5 text-success" />
@@ -170,7 +169,7 @@ export default function RegisterStudent() {
 
                 {faceImage ? (
                   <div className="space-y-4">
-                    <div className="aspect-video rounded-lg overflow-hidden border">
+                    <div className="aspect-video rounded-xl overflow-hidden border border-success/30">
                       <img src={faceImage} alt="Captured face" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex items-center gap-2 text-success text-sm">
@@ -193,12 +192,11 @@ export default function RegisterStudent() {
             </div>
           </div>
 
-          {/* Submit Button */}
           <div className="flex gap-3 mt-6 justify-end">
             <Button type="button" variant="outline" onClick={() => navigate('/students')}>
               Cancel
             </Button>
-            <Button type="submit">
+            <Button type="submit" className="glow-primary">
               Register Student
             </Button>
           </div>

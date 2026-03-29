@@ -59,7 +59,6 @@ export function WebcamCapture({ onCapture, onFaceDetected, mode = 'register' }: 
     }
   }, [onCapture]);
 
-  // Simulate face detection
   useEffect(() => {
     if (isStreaming && mode === 'verify') {
       setIsScanning(true);
@@ -80,7 +79,7 @@ export function WebcamCapture({ onCapture, onFaceDetected, mode = 'register' }: 
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-video rounded-xl overflow-hidden bg-muted border-2 border-border">
+      <div className="relative aspect-video rounded-xl overflow-hidden bg-secondary border-2 border-border">
         <video
           ref={videoRef}
           autoPlay
@@ -105,15 +104,14 @@ export function WebcamCapture({ onCapture, onFaceDetected, mode = 'register' }: 
 
         {isScanning && isStreaming && (
           <>
-            {/* Scanning overlay */}
             <div className="absolute inset-0 border-2 border-primary/50 rounded-xl pointer-events-none">
               <div className="absolute left-0 right-0 h-0.5 bg-primary/70 animate-scan" />
             </div>
             <div className={cn(
-              "absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold",
+              "absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm",
               faceDetected
-                ? "bg-success/90 text-success-foreground"
-                : "bg-muted/90 text-muted-foreground"
+                ? "bg-success/80 text-success-foreground"
+                : "bg-secondary/80 text-muted-foreground"
             )}>
               {faceDetected ? (
                 <>
@@ -133,7 +131,7 @@ export function WebcamCapture({ onCapture, onFaceDetected, mode = 'register' }: 
 
       <div className="flex gap-3">
         {!isStreaming ? (
-          <Button onClick={startCamera} className="flex-1 gap-2">
+          <Button onClick={startCamera} className="flex-1 gap-2 glow-primary">
             <Camera className="w-4 h-4" />
             Start Camera
           </Button>
@@ -143,7 +141,7 @@ export function WebcamCapture({ onCapture, onFaceDetected, mode = 'register' }: 
               <RefreshCw className="w-4 h-4" />
               Stop Camera
             </Button>
-            <Button onClick={captureImage} className="flex-1 gap-2">
+            <Button onClick={captureImage} className="flex-1 gap-2 glow-primary">
               {mode === 'register' ? 'Capture Face' : 'Verify & Mark'}
             </Button>
           </>

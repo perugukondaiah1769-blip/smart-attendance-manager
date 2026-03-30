@@ -19,17 +19,23 @@ Data visualization for insights
 This project focuses on UI/UX + scalable frontend architecture, making it ideal for real-world integration with backend systems.
 
 ✨ Features
+
 👤 User Side
+
 Mark attendance (Check-in / Check-out UI)
 View attendance records
 Interactive calendar/date selection
 Clean and responsive interface
+
 🧑‍💼 Admin Dashboard
+
 Attendance overview dashboard
 Data visualization using charts
 User attendance tracking
 Filter and analyze records
+
 📊 UI & Experience
+
 Modern component-based UI
 Responsive design (mobile + desktop)
 Toast notifications (via Sonner)
@@ -67,6 +73,7 @@ Playwright
 📂 Project Structure
 
 smart-attendance-manager/
+
 │
 ├── public/                # Static assets
 ├── src/

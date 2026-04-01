@@ -96,7 +96,7 @@ smart-attendance-manager/
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/Dastagiri3/smart-attendance-manager.git
+git clone https://github.com/perugukondaiah1769-blip/smart-attendance-manager.git
 
 cd smart-attendance-manager
 
@@ -143,7 +143,7 @@ radix-ui → Accessible UI primitives
 
 This project is deployed on Vercel:
 
-👉 https://ai-smart-attendance-phi.vercel.app
+👉 http:smart-attendance-manager-gamma.vercel.app
 
 🔒 Future Enhancements
 
@@ -164,10 +164,9 @@ Commit changes
 Push and create a Pull Request
 
 👨‍💻 Author
+Kondaiah
 
-Dastagiri
-
-GitHub: https://github.com/Dastagiri3
+GitHub: https://github.com/perugukondaiah1769-blip
 
 ⭐ Support
 

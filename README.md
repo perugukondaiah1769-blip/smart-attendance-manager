@@ -7,7 +7,7 @@ A modern Smart Attendance Management System built with a clean UI and powerful f
 🔗 GitHub Repo: https://github.com/perugukondaiah1769-blip/smart-attendance-manager.git
 
 🚀 Overview
-
+8
 Smart Attendance Manager is a frontend-driven web application designed to manage and visualize attendance efficiently.
 
 It provides:
